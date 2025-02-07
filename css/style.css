@@ -1,6 +1,63 @@
+:root {
+    --brand_color: #7ca2f4;
+    --dark: #121214;
+    --white_soft: #F3F7FF;
+    --white: #FFFFFF;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Archivo, sans-serif;
+}
+
+.top_fixed {
+    width: 100%;
+    height: 64px;
+    background-color: var(--white_soft);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flor {
+    width: 100%;
+    height: 400px;
+    background-image: url('../Images/Paisagem.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flor__content {
+    width: 80%;
+    height: 50px;
+    color: #e8fb31;
+
+}
+
+.flor__content h1, .flor__content p {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.flor__content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.flor__content p {
+    line-height: 34px;
 }
