@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "image": "Vidro de perfume 1.png",
+      "product_name": "Perfume Floral Femme",
+      "product_model": "Perfume refrescante floral",
+      "price": 89.99
+    },
+    {
+      "id": 2,
+      "image": "Vidro de perfume 2.png",
+      "product_name": "Perfume 424 VIP Femme",
+      "product_model": "Perfume Marcante",
+      "price": 109.99
+    },
+    {
+      "id": 3,
+      "image": "Vidro de perfume 3.png",
+      "product_name": "Perfume Animal Men",
+      "product_model": "Perfume Amadeirado",
+      "price": 79.99
+    },
+    {
+      "id": 4,
+      "image": "Vidro de perfume 4.png",
+      "product_name": "Cleo Perfum \"Cleo femme\"",
+      "product_model": "Perfume marcante e muito sexy",
+      "price": 79.00
+    },
+    {
+      "id": 5,
+      "image": "Vidro de perfume 5.png",
+      "product_name": "Perfume One Millione",
+      "product_model": "Perfume para homens aventureiros",
+      "price": 99.99
+    },
+    {
+      "id": 6,
+      "image": "Vidro de perfume 6.png",
+      "product_name": "Perfume Flor Femme",
+      "product_model": "Perfume amadeirado para mulheres especiais",
+      "price": 109.99
+    }
+  ]
