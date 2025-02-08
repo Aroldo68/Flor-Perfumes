@@ -66,5 +66,86 @@ main {
     width: 100%;
     height: 100%;
     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.produtos {
+    width: 100%;
+    height: 100%;
+    margin-block: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+
+}
+
+.heading__produtos {
+    width: 590px;
+    height: 100%;
+    margin-bottom: 72px;
+}
+
+.heading__produtos h3 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+
+}
+
+.heading__produtos p {
+    font-size: 24px;
+    
+}
+
+.lista__produtos {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.card__produto {
+    width: 384px;
+    height: 326px;
+}
+
+.card__produto figure {
+    width: 100%;
+    height: 200px;
+    background-color: var(--white_soft);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__produto_detalhes {
+    margin-block: 24px;
+
+}
+
+.card__produto_detalhes h4 {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.card__produto_detalhes h5 {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--brand_color);
+}
+
+/* Preço */
+.card__produto h6 {
+    font-size: 18px;
+    line-height: 28px;
+    font-family: "Space Grotesk", sans-serif;
 }
