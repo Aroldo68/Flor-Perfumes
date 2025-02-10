@@ -110,8 +110,9 @@ main {
 }
 
 .card__produto {
-    width: 384px;
+    width: 336px;
     height: 326px;
+    flex-basis: 336px;
 }
 
 .card__produto figure {
@@ -146,3 +147,40 @@ main {
     line-height: 28px;
     font-family: "Space Grotesk", sans-serif;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .top_fixed {
+        height: 41px;
+        font-size: 16px;
+    }
+
+    .flor {
+        height: 350px;
+    }
+
+    .flor__content h1 {
+        font-size: 18px;
+    }
+
+    .flor__content h2 {
+        font-size: 24px;
+    }
+
+    .flor__content p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .heading__produtos h3 {
+        font-size: 24px;
+    }
+
+    .heading__produtos p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+  }
+
+@media (max-width: 375px) {  }
