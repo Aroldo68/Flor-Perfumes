@@ -1,4 +1,12 @@
-console.log('Jordan Shoes')
+console.log('Flor Perfumes')
+
+const formatCurrency = (number) => {
+    return number.toLocaleString('pt-BR', {
+        style: 'currency', 
+        currency: 'BRL',
+    })
+}
+
 
 const getProducts = async () => {
     const response =  await fetch('js/products.json')
@@ -24,7 +32,7 @@ const generateCard = async () => {
             <h5>${product.product_model}</h5>
         </div>
         
-        <h6>R$ ${product.price}</h6>
+        <h6>${formatCurrency(product.price)}</h6>
         `
 
         const listaProdutos = document.querySelector('.lista__produtos')
