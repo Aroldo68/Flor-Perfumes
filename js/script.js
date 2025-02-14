@@ -1,9 +1,15 @@
-const formatCurrency = (number) => {
-    return number.toLocaleString('pt-BR', {
-        style: 'currency', 
-        currency: 'BRL',
-    })
-}
+const botaoVoltar = document.querySelector('.voltar')
+const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
+// Ocultar o botão voltar e seção de detalhes do produto
+botaoVoltar.style.display = 'none'
+sectionDetalhesProduto.style.display = 'none'
+
+const numberFormat = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+})
 
 const getProducts = async () => {
     const response =  await fetch('js/products.json')
@@ -27,6 +33,12 @@ const generateCard = async () => {
         `
         const listaProdutos = document.querySelector('.lista__produtos')
         listaProdutos.appendChild(card)
+
+        card.addEventListener('click', () => {
+            // Mostrar o botão e a página de detalhes do produto
+            botaoVoltar.style.display = 'block'
+            sectionDetalhesProduto.style.display = 'grid'
+        })
     })
 }
 
