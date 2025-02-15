@@ -333,12 +333,12 @@ main {
   }
 
   /* Frete */
-        details::marker, 
-        summary::marker {
-            content: "";
-        }
+    details::marker, 
+    summary::marker {
+       content: "";
+    }
 
-summary {
+    summary {
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
