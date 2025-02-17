@@ -121,12 +121,18 @@ const generateCard = async () => {
             sectionDetalhesProduto.style.display = 'grid'
         })
 
-        botaoVoltar.addEventListener('click', () => {
-            sectionProdutos.style.display = 'flex'
-            botaoVoltar.style.display = 'none'
-            sectionDetalhesProduto.style.display = 'none'
-        })
+        // botaoVoltar.addEventListener('click', () => {
+        //     sectionProdutos.style.display = 'flex'
+        //     botaoVoltar.style.display = 'none'
+        //     sectionDetalhesProduto.style.display = 'none'
+        // })
     })
 }
 
 generateCard()
+
+botaoVoltar.addEventListener('click', () => {
+    sectionProdutos.style.display = 'flex'
+    botaoVoltar.style.display = 'none'
+    sectionDetalhesProduto.style.display = 'none'
+})
