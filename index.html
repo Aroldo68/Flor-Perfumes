@@ -2,9 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flor Perfumes</title>
@@ -13,169 +13,42 @@
 </head>
 <body>
 
-    <header class="topo">
-        <div class="topo__marca">
-            <a href="" class="link_home">
-                <img src="Images/Logo preto sem fundo.png" alt="Logo Flor Perfumes">
-                <h1>Flor Perfumes</h1>
-            </a>
-        </div>
-        <div class="btn__carrinho">
-            <div class="btn__carrinho_icone">
-                <span class="material-symbols-outlined icone">
-                    shopping_cart
-                </span>
-                <span class="numero_itens">0</span>
-            </div>
-
-            <div class="btn__carrinho_user">
-                <span id="btn_open_login" class="material-symbols-outlined icone">
-                    account_circle
-                </span>
-                <span id="nome_usuario"></span>
-                <span id="btn_logout">Sair</span>
-            </div>
-        </div>
-    </header>
-
     <section class="top_fixed">
-        Frete para todo o Brasil !     
+        Frete grátis para todo o Brasil !
     </section>
 
-    <section class="flor">
-        <div class="flor__content">
+    <section class="faixa">
+        <div class="faixa__content">
             <h1>
-                <img src="Images/Logo preto sem fundo.png" alt="Logo Flor Perfumes">
+                 <img src="Images/Logo preto sem fundo.png" alt="Logo Flor">
                 Flor Perfumes
             </h1>
     
             <h2>A melhor loja de Perfumes Artesanais</h2>
             <p>Fragrâncias que encantam e envolvem, deixe seu perfume falar por você.</p>
-
         </div>
     </section>
 
     <main>
+
         <section class="produtos">
 
             <div class="heading__produtos">
-                <h3>Os melhores perfumes em um só lugar!</h3>
-                <p>Como eu adoro as essências dos perfumes, o ar à minha volta de cheiros distantes.
+                <h3>Os melhores produtos artesanais em um só lugar!</h3>
+                <p>Como eu amo as essências dos perfumes, o ar à minha volta de cheiros distantes.
                 E eles me transportam aos mais distantes lugares que estavam aparentemente adormecidos.</p>
             </div>
     
-             <section class="lista__produtos">
-                <!--Card's gerados dinamicamente-->
-             </section>
+            <section class="lista__produtos">
+
+                 <!--Card's gerados dinamicamente  -->
+            </section>
     
-        </section>
-
-        <div class="voltar">Voltar</div>
-
-        <section class="produto__detalhes">
-
-            <div class="produto__detalhes_imagens">
-                <figure>
-                    <img src="./Images/Vidro de perfume 3.png" alt="" />
-                </figure>
-                <figure>
-                    <img src="./Images/Vidro de perfume 3.png" alt="" />
-                </figure>
-            </div>
-
-            <div class="produto__detalhes_info">
-
-                <div class="detalhes">
-                    <span>id</span>
-                    <h4>Nome do Produto</h4>
-                    <h5>Descrição</h5>
-                    <h6>R$ preço</h6>
-                </div>
-
-                <div class="tamanho">
-                    <h5>Tamanho</h5>
-                    <div class="tamanhos">
-                        <!-- 30ml  e  60ml -->
-                         <input class="radio" type="radio" name="size" id="size30" value="30">
-                         <label for="size30" class="quantidades">30ml</label>
-
-                         <input class="radio" type="radio" name="size" id="size60" value="60">
-                         <label for="size60" class="quantidades">60ml</label>
-                    </div>
-                </div>
-
-                <div class="botao">
-                    <button type="button" class="btn__add_cart">Adicionar ao carrinho</button>
-                </div>
-
-                <div class="descricao">
-                    <p>Inspirado nos melhores aromas desenvolvemos, um perfume muito especial com produtos totalmente naturais.</p>
-
-                    <p>Benefícios</p>
-            
-                    <ul>
-                        <li>Produto 100% natural livre de qualquer matéria artificial.
-                        <li>Proporcionam conforto, leveza e bem estar.
-                        <li>Trazendo tradição dos aromas da natureza para dentro da sua casa.
-                    </ul>
-                </div>
-
-                <details class="frete">
-
-                    <summary class="icone-expandir">Calcular frete e entrega</summary>
-
-                    <p>Calcule o frete e o prazo de entrega estimados para sua região.</p>
-
-                    <label for="cep">Insira o seu CEP</label>
-                    <div class="input">
-                        <input type="text" id="cep" class="cep" placeholder="00000-000" />
-                        <button type="button">Calcular</button>
-                    </div>
-
-                    <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" rel="noopener noreferrer">Não sei o meu CEP</a>
-
-                </details>
-
-
-            </div>
-
-        </section>
-
-        <section class="carrinho">
-            <h2>Carrinho</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Produto</th>
-                        <th>Tamanho</th>
-                        <th>Preço</th>
-                        <th class="coluna_apagar">Apagar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td class="coluna_apagar">-</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3"><strong>TOTAL</strong></td>
-                        <td class="coluna_total">-</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
-            <!-- Detalhes do Carrinho -->
-             
         </section>
 
     </main>
 
-    <script src="js/script.js"></script>    
+
+    <script src="js/script.js"></script>
 </body>
 </html>
