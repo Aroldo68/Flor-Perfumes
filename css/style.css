@@ -83,7 +83,7 @@ main {
 }
 
 .heading__produtos {
-    width: 590px;  /*largura*/
+    max-width: 590px;  /*largura*/
     height: 100%;  /*altura*/
     margin-bottom: 80px;
 }
@@ -110,8 +110,9 @@ main {
 }
 
 .card__produto {
-    width: 384px;  /*largura*/
+    width: 336px;  /*largura*/
     height: 326px;  /*altura*/
+    flex-basis: 336px;
 }
 
 .card__produto figure {
@@ -145,3 +146,92 @@ main {
     line-height: 30px;
     font-family: "Space Grotesk", sans-serif;
 }
+
+/*Responsividade*/
+@media (max-width: 768px) {
+
+    .top_fixed {
+        height: 41px;
+        font-size: 16px;
+    }
+
+    .faixa {
+        height: 350px;
+    }
+
+    .faixa__content h1 {
+        font-size: 18px;
+    }
+
+    .faixa__content h2 {
+        font-size: 24px;
+    }
+
+    .faixa__content p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .heading__produtos {
+        padding-inline: 20px;
+    }
+
+    .heading__produtos h3 {
+        font-size: 24px;
+    }
+
+    .heading__produtos p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .lista__produtos {
+        margin-block: 32px;
+        gap: 32px; 
+    }
+
+    .card__produto_detalhes h4 {
+        font-size: 18px;
+    }
+
+    .card__produto_detalhes h5 {
+        font-size: 16px;
+    }
+
+    .card__produto h6 {
+        font-size: 20px;
+    }
+
+  }
+
+@media (max-width: 375px) {
+
+    .top_fixed {
+        height: 32px;
+    }
+
+    .faixa__content p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .heading__produtos h3 {
+        font-size: 20px;
+    }
+
+    .heading__produtos p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .lista__produtos {
+        margin-block: 24px;
+        gap: 24px; 
+    }
+
+    .card__produto_detalhes h4 {
+        font-size: 16px;
+    }
+
+    
+  }
