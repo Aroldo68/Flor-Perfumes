@@ -1,15 +1,15 @@
 [
     {
       "id": 1,
-      "image": "Vidro de perfume 1.png",
-      "product_name": "Perfume Floral Femme",
+      "image": "Perfume 424 femme1.png",
+      "product_name": "Perfume 424 Femme",
       "product_model": "Perfume refrescante floral",
       "price": 89.99
     },
     {
       "id": 2,
-      "image": "Vidro de perfume 2.png",
-      "product_name": "Perfume 424 VIP Femme",
+      "image": "Perfume Flor femme3.png",
+      "product_name": "Perfume Flor Femme",
       "product_model": "Perfume Marcante",
       "price": 109.99
     },
@@ -29,9 +29,9 @@
     },
     {
       "id": 5,
-      "image": "Vidro de perfume 5.png",
-      "product_name": "Perfume One Millione",
-      "product_model": "Perfume para homens aventureiros",
+      "image": "Creme Hidratante2.png",
+      "product_name": "Creme Hidratante para mãos e corpo",
+      "product_model": "Creme para deixar a sua pele ainda mais aveludada",
       "price": 99.99
     },
     {

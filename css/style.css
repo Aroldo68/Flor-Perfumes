@@ -68,7 +68,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    flex-direction: column;
 }
 
 .produtos {
@@ -234,4 +234,12 @@ main {
     }
 
     
+  }
+
+  /* Detalhes do Produto */
+  .produto__detalhes {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
   }
