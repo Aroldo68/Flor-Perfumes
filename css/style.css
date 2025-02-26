@@ -115,6 +115,12 @@ main {
     flex-basis: 336px;
 }
 
+/* Interação com a pagina de produtos */
+.card__produto figure:hover {
+    border: 1px solid var(--brand_color);
+    cursor: pointer;
+}
+
 .card__produto figure, .produto__detalhes_imagens figure {
     width: 100%;  
     height: 200px;  
@@ -129,19 +135,19 @@ main {
     margin-block: 24px;
 }
 
-.card__produto_detalhes h4, .detalhes h4 {
+.card__produto_detalhes h4 {
     font-size: 18px;
     line-height: 28px;
 }
 
-.card__produto_detalhes h5, .detalhes h5 {
+.card__produto_detalhes h5 {
     font-size: 16px;
     line-height: 26px;
     color: var(--brand_color);
 }
 
 /*Preço do produto*/
-.card__produto h6, .detalhes h6 {
+.card__produto h6 {
     font-size: 20px;
     line-height: 30px;
     font-family: "Space Grotesk", sans-serif;
@@ -273,4 +279,150 @@ main {
     border: 0;
     cursor: pointer;
     font-size: 18px;
+  }
+
+  /* Detalhes do produto - nome, descrição e preço */
+  .detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .detalhes h4 {
+    font-size: 24px;
+  }
+
+  .detalhes h5 {
+    font-size: 16px;
+    color: var(--brand_color);
+  }
+
+  /* Tamanhos das embalagens */
+  .tamanho h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .tamanhos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .numeros {
+    height: 40px;
+    border: 1px solid #ccc;
+  }
+
+  /* Texto descritivo */
+  .descricao {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+
+  .descricao p {
+    margin-bottom: 10px;
+  }
+
+  .descricao ul {
+    margin-left: 20px;
+  }
+
+  /* Frete */
+  details::marker,
+  summary::marker {
+    content: "";
+  }
+
+  summary {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .icone-expandir::after,
+  .icone-recolher::after {
+    content: "";
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    background-image: url('../Images/icon_keyboard_arrow_down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+  }
+
+  .icone-recolher::after {
+    background-image: url('../Images/icon_keyboard_arrow_up.svg');
+  }
+
+  details {
+    font-size: 16px;    
+  }
+
+  details p {
+    margin-bottom: 15px;
+  }
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  .input {
+    margin-block: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .input input {
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  .input button {
+    font-size: 16px;
+    font-weight: 500;
+    width: 120px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    margin-right: 5px;
+  }
+
+  .input button:hover {
+    border-color: #222;
+  }
+
+  details a {
+    color: var(--dark);
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .voltar {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .voltar:hover {
+    cursor: pointer;
+    border: 1px solid var(--brand_color);
   }
