@@ -1,3 +1,10 @@
+const botaoVoltar = document.querySelector('.voltar')
+const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
+const sectionProdutos = document.querySelector('.produtos')
+// Ocultar o botao detalhes e a seção de detalhes do produtos
+botaoVoltar.style.display = 'none'
+sectionDetalhesProduto.style.display = 'none'   
+
 const formatCurrency = (number) => {
     return number.toLocaleString('pt-BR', {
         style: 'currency',
@@ -29,7 +36,20 @@ const generateCard = async () => {
         `
         const listaProdutos = document.querySelector('.lista__produtos')
         listaProdutos.appendChild(card)
+
+        card.addEventListener('click', () => {
+            sectionProdutos.style.display = 'none'
+            // Mostrar o botão e a area de detalhes do produto
+            botaoVoltar.style.display = 'block'
+            sectionDetalhesProduto.style.display = 'grid'
+        })
     })
 }
 
 generateCard()
+
+botaoVoltar.addEventListener('click', () => {
+        sectionProdutos.style.display = 'flex'
+        botaoVoltar.style.display = 'none'
+        sectionDetalhesProduto.style.display = 'none'
+})
