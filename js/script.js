@@ -23,6 +23,7 @@ const generateCard = async () => {
     const products = await getProducts()
     products.map(product => {
         let card = document.createElement('div')
+        card.id = product.id  //Identificação de cada card
         card.classList.add('card__produto')
         card.innerHTML = `
             <figure>
@@ -37,11 +38,19 @@ const generateCard = async () => {
         const listaProdutos = document.querySelector('.lista__produtos')
         listaProdutos.appendChild(card)
 
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            // Ocultar e Mostrar o botão e a area de detalhes do produto
             sectionProdutos.style.display = 'none'
-            // Mostrar o botão e a area de detalhes do produto
             botaoVoltar.style.display = 'block'
             sectionDetalhesProduto.style.display = 'grid'
+
+            //Identificar qual o card foi clicado
+            const cardClicado = e.currentTarget
+            const idProduto = cardClicado.id
+            const produtoClicado = products.find( product => product.id == idProduto )
+            //console.log(produtoClicado)
+            //Preencher os dados de detalhes do produto
+            preencherDadosProduto(produtoClicado)
         })
     })
 }
@@ -53,3 +62,13 @@ botaoVoltar.addEventListener('click', () => {
         botaoVoltar.style.display = 'none'
         sectionDetalhesProduto.style.display = 'none'
 })
+
+const preencherDadosProduto = (product) => {
+    //Preencher imagens
+    const images = document.querySelectorAll('.produto__detalhes_imagens figure img')
+    const imagensArray = Array.from(images)
+    console.log(imagensArray)
+
+
+    //Preencher nome, quant. e preço
+}
