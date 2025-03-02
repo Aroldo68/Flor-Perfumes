@@ -67,8 +67,12 @@ const preencherDadosProduto = (product) => {
     //Preencher imagens
     const images = document.querySelectorAll('.produto__detalhes_imagens figure img')
     const imagensArray = Array.from(images)
-    console.log(imagensArray)
-
+    imagensArray.map( image => {
+        image.src = `./images/${product.image}`
+    })
 
     //Preencher nome, quant. e preço
+    document.querySelector('.detalhes h4').innerHTML = product.product_name
+    document.querySelector('.detalhes h5').innerHTML = product.product_model
+    document.querySelector('.detalhes h6').innerHTML = numberFormat.format(product.price)
 }
