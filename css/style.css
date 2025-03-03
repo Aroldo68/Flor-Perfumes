@@ -17,18 +17,80 @@ body {
     font-family: Archivo, sans-serif;
 }
 
+/* Topo */
+.topo {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--white_soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topo__marca a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.topo__marca img {
+    margin-right: 5px;
+}
+
+.topo__marca h1 {
+    font-size: 24px;
+}
+
+.btn__carrinho {
+    position: relative;
+    display: inline-block;
+}
+
+.btn__carrinho span {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn__carrinho .icone {
+    font-size: 28px;
+}
+
+.btn__carrinho .icone:hover {
+    filter: invert(0.5);
+}
+
+.btn__carrinho .numero_itens {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #f44336;
+    color: #f1f1f1;
+    font-size: 14px;
+    text-align: center;
+    line-height: 18px;
+}
+
 .top_fixed {
     width: 100%;
     height: 64px;
     background-color: var(--white_soft);
     font-size: 24px;
     font-weight: 500;
-    display: flex;
+    display: none; /* flex */
     align-items: center;
     justify-content: center;
 }
 
 .faixa {
+    margin-top: 50px;
     width: 100%;
     height: 400px;
     background-image: url('../Images/Paisagem.jpg');
@@ -138,6 +200,11 @@ main {
 .card__produto_detalhes h4 {
     font-size: 18px;
     line-height: 28px;
+    /* Ajustes nos detalhes */
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card__produto_detalhes h5 {
@@ -297,6 +364,10 @@ main {
     color: var(--brand_color);
   }
 
+  .detalhes h6 {
+    font-size: 20px;
+  }
+
   /* Tamanhos das embalagens */
   .tamanho h5 {
     font-size: 18px;
@@ -310,8 +381,26 @@ main {
   }
 
   .numeros {
-    height: 40px;
+    height: 38px;
     border: 1px solid #ccc;
+    /* Detalhes para tamanho das embalagens */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .numeros:hover {
+    border-color: var(--dark);
+    cursor: pointer;
+  }
+
+  .radio {
+    display: none;
+  }
+
+  .selecionado {
+    border-color: var(--dark);
   }
 
   /* Texto descritivo */

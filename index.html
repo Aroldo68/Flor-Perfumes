@@ -6,12 +6,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flor Perfumes</title>
     <link rel="icon" href="images/Logo preto sem fundo.png" />   
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+    <header class="topo">
+        <div class="topo__marca">
+            <a href="" class="link_home">
+                <img src="Images/Logo preto sem fundo.png" alt="Logo Flor">
+                <h1>Flor Perfumes</h1>
+            </a>
+        </div>
+        <div class="btn__carrinho">
+            <span class="material-symbols-outlined icone">
+                shopping_cart
+            </span>
+            <span class="numero_itens">0</span>
+        </div>
+    </header>
 
     <section class="top_fixed">
         Frete grátis para todo o Brasil !
@@ -73,9 +89,20 @@
                 </div>
 
                 <div class="tamanho">
-                    <h5>Tamanho</h5>
+                    <h5>Quantidade da embalagem</h5>
                     <div class="tamanhos">
-                        12ml 30ml 60ml 100ml
+                        <!--12ml 30ml 60ml 100ml-->
+                        <input class="radio" type="radio" name="size" id="size12" value="12ml">
+                        <label for="size12" class="numeros">12ml</label>
+
+                        <input class="radio" type="radio" name="size" id="size30" value="30ml">
+                        <label for="size30" class="numeros">30ml</label>
+
+                        <input class="radio" type="radio" name="size" id="size60" value="60ml">
+                        <label for="size60" class="numeros">60ml</label>
+
+                        <input class="radio" type="radio" name="size" id="size100" value="100ml">
+                        <label for="size100" class="numeros">100ml</label>
                     </div>
                 </div>
 
@@ -112,6 +139,22 @@
 
             </div>
 
+        </section>
+
+        <section class="carrinho">
+            <h2>Carrinho</h2>
+            <table>
+                <thead>
+                    <th>id</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th class="coluna_apagar">Apagar</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
         </section>
 
     </main>
