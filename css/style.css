@@ -515,3 +515,48 @@ main {
     cursor: pointer;
     border: 1px solid var(--brand_color);
   }
+
+  .carrinho {
+    display: none;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    margin-block: 20px;
+    padding-inline: 20px;
+  }
+
+  .carrinho h2 {
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table tr, th, td {
+    border: 1px solid #ccc;
+    height: 40px;
+  }
+
+  table td {
+    padding-inline: 10px;
+  }
+
+  .coluna_tamanho, .coluna_preco {
+    text-align: right;
+  }
+
+  .coluna_apagar {
+    width: 65px;
+    text-align: center;
+  }
+
+  .coluna_apagar span:hover {
+    cursor: pointer;
+    color: red;
+  }
+
+  tfoot {
+    text-align: right;
+  }

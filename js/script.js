@@ -1,6 +1,7 @@
 const botaoVoltar = document.querySelector('.voltar')
 const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
 const sectionProdutos = document.querySelector('.produtos')
+const sectionTopo = document.querySelector('.topo')
 
 const ocultarBotaoEsecao = () => {
     botaoVoltar.style.display = 'none'
@@ -90,3 +91,23 @@ const preencherCard = (card, products) => {
         preencherDadosProduto(produtoClicado)
     })
 }
+
+// Criação pagina carrinho
+const btnCarrinho = document.querySelector('.btn__carrinho .icone')
+const sectionCarrinho = document.querySelector('.carrinho')
+
+btnCarrinho.addEventListener('click', () => {
+    sectionCarrinho.style.display = 'block'
+    sectionTopo.style.display = 'none'
+    sectionProdutos.style.display = 'none'
+    sectionDetalhesProduto.style.display = 'none'
+})
+
+const btnHome = document.querySelector('.link_home')
+btnHome.addEventListener('click', (event) => {
+    event.preventDefault()
+    sectionCarrinho.style.display = 'none'
+    sectionTopo.style.display = 'flex'
+    sectionProdutos.style.display = 'flex'
+    sectionDetalhesProduto.style.display = 'none'
+})
