@@ -516,6 +516,7 @@ main {
     border: 1px solid var(--brand_color);
   }
 
+  /* Carrinho  */
   .carrinho {
     display: none;
     padding-top: 30px;

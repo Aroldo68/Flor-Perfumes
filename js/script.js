@@ -1,7 +1,7 @@
 const botaoVoltar = document.querySelector('.voltar')
 const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
 const sectionProdutos = document.querySelector('.produtos')
-const sectionTopo = document.querySelector('.topo')
+const sectionfaixa = document.querySelector('.faixa')
 
 const ocultarBotaoEsecao = () => {
     botaoVoltar.style.display = 'none'
@@ -50,6 +50,7 @@ generateCard()
 botaoVoltar.addEventListener('click', () => {
         sectionProdutos.style.display = 'flex'
         ocultarBotaoEsecao()
+        resetarSelecao(radios)  
 })
 
 const preencherDadosProduto = (product) => {
@@ -61,6 +62,7 @@ const preencherDadosProduto = (product) => {
     })
 
     //Preencher nome, quant. e preço
+    document.querySelector('.detalhes span').innerHTML = product.id
     document.querySelector('.detalhes h4').innerHTML = product.product_name
     document.querySelector('.detalhes h5').innerHTML = product.product_model
     document.querySelector('.detalhes h6').innerHTML = numberFormat.format(product.price)
@@ -98,7 +100,7 @@ const sectionCarrinho = document.querySelector('.carrinho')
 
 btnCarrinho.addEventListener('click', () => {
     sectionCarrinho.style.display = 'block'
-    sectionTopo.style.display = 'none'
+    sectionfaixa.style.display = 'none'
     sectionProdutos.style.display = 'none'
     sectionDetalhesProduto.style.display = 'none'
 })
@@ -107,7 +109,85 @@ const btnHome = document.querySelector('.link_home')
 btnHome.addEventListener('click', (event) => {
     event.preventDefault()
     sectionCarrinho.style.display = 'none'
-    sectionTopo.style.display = 'flex'
+    sectionfaixa.style.display = 'flex'
     sectionProdutos.style.display = 'flex'
-    sectionDetalhesProduto.style.display = 'none'
+    ocultarBotaoEsecao() //ajustes no site
 })
+
+//Continuação da montagem da pagina carrinho
+const radios = document.querySelectorAll('input[type="radio"]')
+radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        const label = document.querySelector(`label[for="${radio.id}"]`)
+        label.classList.add('selecionado')
+        console.log(label)
+        radios.forEach(radioAtual => {
+            if (radioAtual !== radio) {
+                const outroLabel = document.querySelector(`label[for="${radioAtual.id}"]`)
+                outroLabel.classList.remove('selecionado')
+            }
+        })
+    })
+})
+
+const resetarSelecao = (radios) => {
+    radios.forEach(radio => {
+        radios.forEach(radioAtual => {
+            if (radioAtual !== radio) {
+                const outroLabel = document.querySelector(`label[for="${radioAtual.id}"]`)
+                outroLabel.classList.remove('selecionado')
+            }
+        })
+    })
+}
+
+const cart = []
+
+const btnAddCarrinho = document.querySelector('.btn__add_cart')
+btnAddCarrinho.addEventListener('click', () => {
+//pegar dados do produto adicionado 
+    const produto = {
+        id: document.querySelector('.detalhes span').innerHTML,
+        nome: document.querySelector('.detalhes h4').innerHTML,
+        modelo: document.querySelector('.detalhes h5').innerHTML,
+        preco: document.querySelector('.detalhes h6').innerHTML,
+        tamanho: document.querySelector('input[type="radio"][name="size"]:checked').value
+    }
+    console.log(produto)
+    cart.push(produto) // Adicionar o produto ao array cart -> Carrinho
+    console.log(cart)
+    // Ocultar o botão voltar, faixa e a seção detalhes do produto e mostrar pagina carrinho
+    ocultarBotaoEsecao()
+    sectionfaixa.style.display = 'none'
+    sectionCarrinho.style.display = 'block'
+
+    atualizarCarrinho(cart)
+    atualizarNumeroItens()
+
+})
+
+const corpoTabela = document.querySelector('.carrinho tbody')
+
+const atualizarCarrinho = (cart) => {
+    corpoTabela.innerHTML = "" //Limpar a tabela
+    cart.map(produto => {
+        corpoTabela.innerHTML += `
+            <tr>
+                <td>${produto.id}</td>
+                <td>${produto.nome}</td>
+                <td class='coluna_tamanho'>${produto.tamanho}</td>
+                <td class='coluna_preco'>${produto.preco}</td>
+                <td class='coluna_apagar'>
+                    <span class="material-symbols-outlined" data-id="${produto.id}">
+                        delete
+                    </span>
+                </td>
+            </tr>
+        `
+    })
+}
+
+const numeroItens = document.querySelector('.numero_itens')
+const atualizarNumeroItens = () => {
+    numeroItens.innerHTML = cart.length
+}   

@@ -83,6 +83,7 @@
 
             <div class="produto__detalhes_info">
                 <div class="detalhes">
+                    <span>id</span>
                     <h4>Nome do Produto</h4>
                     <h5>Descrição</h5>
                     <h6>R$ preço</h6>
@@ -107,7 +108,7 @@
                 </div>
 
                 <div class="botao">
-                    <button type="button">Adicionar ao carrinho</button>
+                    <button type="button" class="btn__add_cart">Adicionar ao carrinho</button>
                 </div>
 
                 <div class="descricao">
@@ -145,23 +146,29 @@
             <h2>Carrinho</h2>
             <table>
                 <thead>
-                    <th>id</th>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Preço</th>
-                    <th class="coluna_apagar">Apagar</th>
+                    <tr>
+                        <th>id</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th class="coluna_apagar">Apagar</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td class="coluna_apagar">-</td>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="coluna_apagar">-</td>
+                    </tr>
                 </tbody>
                 <tfoot>
-                    <td colspan="3"><strong>TOTAL</strong></td>
-                    <td class="coluna_total">-</td>
-                    <td></td>
+                    <tr>
+                        <td colspan="3"><strong>TOTAL</strong></td>
+                        <td class="coluna_total">-</td>
+                        <td></td>
+                    </tr>
                 </tfoot>
             </table>
         </section>
