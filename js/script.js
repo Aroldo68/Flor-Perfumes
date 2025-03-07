@@ -179,15 +179,45 @@ const atualizarCarrinho = (cart) => {
                 <td class='coluna_preco'>${produto.preco}</td>
                 <td class='coluna_apagar'>
                     <span class="material-symbols-outlined" data-id="${produto.id}">
-                        delete
+                        Delete
                     </span>
                 </td>
             </tr>
         `
     })
+
+    const total = cart.reduce( (valorAcumulado, item) => {
+        return valorAcumulado + parseFloat(item.preco.replace('R$&nbsp;', '').replace('.', '').replace(',', '.'))
+    }, 0)
+    document.querySelector('.coluna_total').innerHTML = numberFormat.format(total) // 1123.45
+
+    acaoBotaoApagar()
 }
 
 const numeroItens = document.querySelector('.numero_itens')
+numeroItens.style.display = 'none'  // ocultar numero itens carrinho
+
 const atualizarNumeroItens = () => {
+    (cart.length > 0) ? numeroItens.style.display = 'block' : numeroItens.style.display = 'none'
     numeroItens.innerHTML = cart.length
 }   
+
+// Botão apagar
+const acaoBotaoApagar = () => {
+    const botaoApagar = document.querySelectorAll('.coluna_apagar span')
+    botaoApagar.forEach( botao => {
+        botao.addEventListener('click', () => {
+            console.log('Apagar')
+            const id = botao.getAttribute('data-id')
+            console.log(id)
+            const posicao = cart.findIndex( item => item.id == id )
+            cart.splice(posicao, 1)
+            atualizarCarrinho(cart)
+        })
+    })
+    atualizarNumeroItens()
+}
+
+// Selecionar o span do id e ocultar.
+const spanId = document.querySelector('.detalhes span')
+spanId.style.display = 'none'
