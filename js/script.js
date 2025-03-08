@@ -1,3 +1,5 @@
+import { numberFormat } from './utils.js'
+
 const botaoVoltar = document.querySelector('.voltar')
 const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
 const sectionProdutos = document.querySelector('.produtos')
@@ -9,13 +11,6 @@ const ocultarBotaoEsecao = () => {
 }
 
 ocultarBotaoEsecao()    
-
-const numberFormat = new Intl.NumberFormat('pt-BR', { 
-        style: 'currency',
-        currency: 'BRL',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-    }) 
 
 const getProducts = async () => {
     const response = await fetch('js/products.json')
@@ -190,6 +185,8 @@ const atualizarCarrinho = (cart) => {
         return valorAcumulado + parseFloat(item.preco.replace('R$&nbsp;', '').replace('.', '').replace(',', '.'))
     }, 0)
     document.querySelector('.coluna_total').innerHTML = numberFormat.format(total) // 1123.45
+    spanSubTotal.innerHTML = numberFormat.format(total)
+    spanTotalCompra.innerHTML = numberFormat.format(total + valorFrete - valorDesconto)
 
     acaoBotaoApagar()
 }
@@ -209,7 +206,6 @@ const acaoBotaoApagar = () => {
         botao.addEventListener('click', () => {
             console.log('Apagar')
             const id = botao.getAttribute('data-id')
-            console.log(id)
             const posicao = cart.findIndex( item => item.id == id )
             cart.splice(posicao, 1)
             atualizarCarrinho(cart)
@@ -221,3 +217,15 @@ const acaoBotaoApagar = () => {
 // Selecionar o span do id e ocultar.
 const spanId = document.querySelector('.detalhes span')
 spanId.style.display = 'none'
+
+// Detalhes da pagina de pedidos
+let valorFrete = 0
+let valorDesconto = 0
+
+const spanSubTotal = document.querySelector('.sub_total')
+const spanFrete = document.querySelector('.valor_frete')
+const spanDesconto = document.querySelector('.valor_desconto')
+const spanTotalCompra = document.querySelector('.total_compra')
+
+spanFrete.innerHTML = numberFormat.format(valorFrete)
+spanDesconto.innerHTML = numberFormat.format(valorDesconto)

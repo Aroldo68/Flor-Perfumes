@@ -469,13 +469,34 @@ main {
     position: relative;
   }
 
-  .input input {
+  .input input, .input select {
     width: 100%;
     height: 50px;
     border-radius: 50px;
     border: 1px solid #ccc;
     font-size: 20px;
     padding-left: 20px;
+  }
+
+  .bloco {
+    width: 100%;
+    margin-block: 20px;
+  }
+
+  .input .checkbox {
+    width: 20px;
+  }
+
+  .input select {
+    background-image: url('../Images/icon_keyboard_arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 25px;
+    padding-right: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
   .input button {
@@ -561,3 +582,73 @@ main {
   tfoot {
     text-align: right;
   }
+
+  /* DETALHES DO CARRINHO */
+.carrinho__detalhes {
+  width: 100%;
+  margin-block: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.carrinho__detalhes label, .carrinho__detalhes h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* .carrinho__detalhes .frete */
+.carrinho__detalhes .frete p {
+  margin-bottom: 10px;
+}
+
+/* .carrinho__detalhes .cupom_desconto */
+.cupom_desconto input {
+  min-width: 320px;
+}
+
+/* .carrinho__detalhes .resumo */
+.carrinho__detalhes .resumo {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.resumo ul {
+  margin-bottom: 20px;
+}
+
+.resumo li {
+  font-size: 16px;
+  line-height: 48px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.resumo li:first-child {
+  border-top: 1px solid #ccc;
+}
+
+@media (max-width: 1024px) {
+  .carrinho__detalhes {
+      flex-direction: column;
+      gap: 20px;
+  }
+  .carrinho__detalhes label, .carrinho__detalhes h3 {
+      font-size: 18px;
+  }
+  .carrinho__detalhes p {
+      font-size: 14px;
+  }
+}
+
+.identificacao, .pagamento {
+  margin-top: 50px;
+  padding-inline: 20px;
+  width: 100%;
+}
+
+.identificacao h2, .pagamento h2 {
+  text-align: center;
+}
