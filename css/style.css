@@ -652,3 +652,7 @@ main {
 .identificacao h2, .pagamento h2 {
   text-align: center;
 }
+
+.pagamento h3 {
+  margin-block: 10px;
+}

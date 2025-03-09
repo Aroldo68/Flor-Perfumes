@@ -215,8 +215,111 @@
             </div>
         </section>
 
-    </main>
+        <section class="identificacao">
 
+            <h2>Identificação</h2>
+            <p>* campos obrigatórios</p>
+
+            <form class="form_identificacao">
+                <div class="input">
+                    <label for="nome">Nome completo*</label>
+                    <input type="text" id="nome" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="email">E-mail*</label>
+                    <input type="email" id="email" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="tel">Telefone*</label>
+                    <input type="tel" id="tel" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="cep1">CEP*</label>
+                    <input type="text" id="cep1" class="input" maxlength="9" placeholder="99999-999" required />
+                </div>
+                <div class="input">
+                    <label for="endereco">Endereço*</label>
+                    <input type="text" id="endereco" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="numero">Número*</label>
+                    <input type="text" id="endereco" class="input" maxlength="10" required />
+                </div>
+                <div class="input">
+                    <label for="bairro">Bairro*</label>
+                    <input type="text" id="bairro" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" class="input" />
+                </div>
+                <div class="input">
+                    <label for="cidade">Cidade*</label>
+                    <input type="text" id="cidade" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="estado">Estado*</label>
+                    <input type="text" id="estado" class="input" maxlength="2" required />
+                </div>
+                <div class="bloco">
+                    <input type="checkbox" id="concordo" class="checkbox" required />
+                    <label for="concordo">Concordo com a Política de Privacidade e os Termos de Uso.*</label>
+                </div>
+                <div class="botao">
+                    <button type="button" class="btn_finalizar_cadastro">Finalizar cadastro</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="pagamento">
+            <h2>Pagamento</h2>
+            <p>* campos obrigatórios</p>
+            
+            <h3>Dados do cartão</h3>
+        
+            <form class="form_pagamento">
+                <div class="input">
+                    <label for="numero_cartao">Número do cartão*</label>
+                    <input type="text" id="numero_cartao" class="input" maxlength="16" required />
+                </div>
+                <div class="input">
+                    <label for="nome_impresso">Nome impresso*</label>
+                    <input type="text" id="nome_impresso" class="input" required />
+                </div>
+                <div class="input">
+                    <label for="validade">Validade*</label>
+                    <input type="text" id="validade" class="input" maxlength="5" placeholder="MM/AA" required />
+                </div>
+                <div class="input">
+                    <label for="codigo_seguranca">Código de Seguranca*</label>
+                    <input type="text" id="codigo_seguranca" class="input" maxlength="3" placeholder="CVV" required />
+                </div>
+                <div class="input">
+                    <label for="numero_parcelas">Número de parcelas</label>
+                    <select id="numero_parcelas" required >
+                        <option value="1">À vista</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="bloco">
+                    <input type="checkbox" id="salvar_cartao" class="checkbox" />
+                    <label for="salvar_cartao">Salvar cartão para minhas próximas compras.*</label>
+                </div>
+                <div class="botao">
+                    <button type="button" class="btn_finalizar_compra">Finalizar compra</button>
+                </div>
+                <div class="bloco">
+                    <p>Ao finalizar a sua compra, você concorda com a nossa Política de trocas e devoluções.</p>
+                </div>
+            </form>
+            
+        </section>
+            </form>
+
+        </section>
+
+    </main>
 
     <script src="js/utils.js" type="module"></script>
     <script src="js/script.js" type="module"></script>

@@ -229,3 +229,5 @@ const spanTotalCompra = document.querySelector('.total_compra')
 
 spanFrete.innerHTML = numberFormat.format(valorFrete)
 spanDesconto.innerHTML = numberFormat.format(valorDesconto)
+
+// Montagem da pagina cadastro de cliente e pagamento
