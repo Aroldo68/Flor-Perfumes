@@ -4,6 +4,16 @@ const botaoVoltar = document.querySelector('.voltar')
 const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
 const sectionProdutos = document.querySelector('.produtos')
 const sectionfaixa = document.querySelector('.faixa')
+const sectionCarrinho = document.querySelector('.carrinho')
+
+// NAVEGACAO
+const ocultarElemento = (elemento) => {
+    elemento.style.display = 'none'
+}
+
+const mostrarElemento = (elemento, display='block') => {
+    elemento.style.display = display
+}
 
 const ocultarBotaoEsecao = () => {
     botaoVoltar.style.display = 'none'
@@ -91,22 +101,24 @@ const preencherCard = (card, products) => {
 
 // Criação pagina carrinho
 const btnCarrinho = document.querySelector('.btn__carrinho .icone')
-const sectionCarrinho = document.querySelector('.carrinho')
-
 btnCarrinho.addEventListener('click', () => {
-    sectionCarrinho.style.display = 'block'
-    sectionfaixa.style.display = 'none'
-    sectionProdutos.style.display = 'none'
-    sectionDetalhesProduto.style.display = 'none'
+    mostrarElemento(sectionCarrinho)
+    ocultarElemento(sectionfaixa)
+    ocultarElemento(sectionProdutos)
+    ocultarElemento(sectionDetalhesProduto)
+    ocultarElemento(sectionIdentificacao)
+    ocultarElemento(sectionPagamento)   
 })
 
 const btnHome = document.querySelector('.link_home')
 btnHome.addEventListener('click', (event) => {
     event.preventDefault()
-    sectionCarrinho.style.display = 'none'
-    sectionfaixa.style.display = 'flex'
-    sectionProdutos.style.display = 'flex'
+    ocultarElemento(sectionCarrinho)
+    mostrarElemento(sectionfaixa, 'flex')
+    mostrarElemento(sectionProdutos, 'flex')
     ocultarBotaoEsecao() //ajustes no site
+    ocultarElemento(sectionIdentificacao)
+    ocultarElemento(sectionPagamento)   
 })
 
 //Continuação da montagem da pagina carrinho
@@ -231,3 +243,30 @@ spanFrete.innerHTML = numberFormat.format(valorFrete)
 spanDesconto.innerHTML = numberFormat.format(valorDesconto)
 
 // Montagem da pagina cadastro de cliente e pagamento
+const sectionIdentificacao = document.querySelector('.identificacao')
+const sectionPagamento = document.querySelector('.pagamento')
+
+ocultarElemento(sectionIdentificacao)
+ocultarElemento(sectionPagamento)
+
+const btnContinuarCarrinho = document.querySelector('.btn_continuar')
+btnContinuarCarrinho.addEventListener('click', () => {
+    ocultarElemento(sectionCarrinho)
+    mostrarElemento(sectionIdentificacao)
+
+})
+
+const btnFinalizarCadastro = document.querySelector('.btn_finalizar_cadastro')
+btnFinalizarCadastro.addEventListener('click', () => {
+    ocultarElemento(sectionIdentificacao)
+    mostrarElemento(sectionPagamento)
+
+})
+
+const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
+btnFinalizarCompra.addEventListener('click', () => {
+    ocultarElemento(sectionPagamento)
+    mostrarElemento(sectionfaixa, 'flex')
+    mostrarElemento(sectionProdutos, 'flex')
+
+})
