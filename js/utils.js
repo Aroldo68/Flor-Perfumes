@@ -6,6 +6,6 @@ export const numberFormat = new Intl.NumberFormat('pt-BR', {
     maximumFractionDigits: 2,
 }) 
 
-const limparFormatoReal = (valor) => {
+//const limparFormatoReal = (valor) => {
 
-}
+//}

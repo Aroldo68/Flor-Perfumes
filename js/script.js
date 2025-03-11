@@ -257,9 +257,39 @@ btnContinuarCarrinho.addEventListener('click', () => {
 })
 
 const btnFinalizarCadastro = document.querySelector('.btn_finalizar_cadastro')
-btnFinalizarCadastro.addEventListener('click', () => {
-    ocultarElemento(sectionIdentificacao)
-    mostrarElemento(sectionPagamento)
+btnFinalizarCadastro.addEventListener('click', (event) => {
+    // ocultarElemento(sectionIdentificacao)
+    // mostrarElemento(sectionPagamento)
+    event.preventDefault()
+
+    const nome = document.querySelector('#nome').value
+    const email = document.querySelector('#email').value
+    const telefone = document.querySelector('#tel').value
+    const cep = document.querySelector('#cep1').value
+    const endereco = document.querySelector('#endereco').value
+    const numero = document.querySelector('#numero').value
+    const bairro = document.querySelector('#bairro').value
+    const complemento = document.querySelector('#complemento').value
+    const cidade = document.querySelector('#cidade').value
+    const estado = document.querySelector('#estado').value
+    const concordo = document.querySelector('#concordo').checked
+
+    // Validações dos dados
+    const cadastro = {
+        nome,
+        email,
+        telefone,
+        cep,
+        endereco,
+        numero,
+        bairro,
+        complemento,
+        cidade,
+        estado,
+        concordo
+    }
+
+    console.log(cadastro)
 
 })
 
