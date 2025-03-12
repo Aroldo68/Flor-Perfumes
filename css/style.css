@@ -656,3 +656,17 @@ main {
 .pagamento h3 {
   margin-block: 10px;
 }
+
+/* Validações do formulario */
+.campo-invalido {
+  border-color: red !important;
+}
+
+.campo-valido {
+  border-color: green !important;
+}
+
+.erro {
+  color: red;
+  margin-left: 5px;
+}

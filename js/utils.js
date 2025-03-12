@@ -7,5 +7,4 @@ export const numberFormat = new Intl.NumberFormat('pt-BR', {
 }) 
 
 //const limparFormatoReal = (valor) => {
-
 //}
