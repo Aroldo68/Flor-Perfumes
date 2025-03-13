@@ -268,7 +268,16 @@ const pegarDados = () => {
     })
     return dados
 }
- 
+
+const validacaoDoFormulario = () =>{
+    todosCamposObrigatorios.forEach( campoObrigatorio => {
+        const isEmpty = campoObrigatorio.value.trim() === ''
+        const isNotChecked = campoObrigatorio.type === 'checkbox' && !campoObrigatorio.checked
+
+        
+    })
+}
+
 const btnFinalizarCadastro = document.querySelector('.btn_finalizar_cadastro')
 btnFinalizarCadastro.addEventListener('click', (event) => {
     
