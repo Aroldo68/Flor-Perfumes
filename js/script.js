@@ -274,7 +274,20 @@ const validacaoDoFormulario = () =>{
         const isEmpty = campoObrigatorio.value.trim() === ''
         const isNotChecked = campoObrigatorio.type === 'checkbox' && !campoObrigatorio.checked
 
-        
+        if(isEmpty) {
+            campoObrigatorio.nextElementSibling.textContent = `${campoObrigatorio.id} obrigatorio`
+            campoObrigatorio.classList.add('campo-invalido')
+        }else{
+            campoObrigatorio.nextElementSibling.textContent = ``
+            campoObrigatorio.classList.add('campo-valido')
+            campoObrigatorio.classList.remove('campo-invalido')
+        }
+
+        if(isNotChecked) {
+            campoObrigatorio.parentElement.classList.add('erro')
+        }else{
+            campoObrigatorio.parentElement.classList.remove('erro')
+        }
     })
 }
 
