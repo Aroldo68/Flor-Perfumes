@@ -338,3 +338,21 @@ btnFinalizarCompra.addEventListener('click', () => {
     mostrarElemento(sectionProdutos, 'flex')
 
 })
+
+// Completar os dados após vreificar o CEP
+const buscarCEP = async (cep) => {
+    const url = `https://viacep.com.br/ws/${cep}/json`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+}
+
+document.querySelector('#cep1').addEventListener('blur', async (e) => {
+    let resposta = await buscarCEP(e.target.value)
+    console.log(resposta)
+
+    document.querySelector('#endereco').value = resposta.logradouro
+    document.querySelector('#bairro').value = resposta.bairro
+    document.querySelector('#cidade').value = resposta.localidade
+    document.querySelector('#estado').value = resposta.uf
+})
