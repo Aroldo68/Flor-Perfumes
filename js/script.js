@@ -348,11 +348,30 @@ const buscarCEP = async (cep) => {
 }
 
 document.querySelector('#cep1').addEventListener('blur', async (e) => {
-    let resposta = await buscarCEP(e.target.value)
-    console.log(resposta)
-
+    const cep = e.target.value
+    if (!cep) {
+        limparCampos()
+        return
+    }
+    const resposta = await buscarCEP(cep)
+    if (resposta.erro) {
+        limparCampos()
+        return
+    }
+    preencherCampos(resposta)
+    document.querySelector('#numero').focus()
+})
+  
+const limparCampos = () => {
+    document.querySelector('#endereco').value = ''
+    document.querySelector('#bairro').value = ''
+    document.querySelector('#cidade').value = ''
+    document.querySelector('#estado').value = ''
+}
+  
+const preencherCampos = (resposta) => {
     document.querySelector('#endereco').value = resposta.logradouro
     document.querySelector('#bairro').value = resposta.bairro
     document.querySelector('#cidade').value = resposta.localidade
     document.querySelector('#estado').value = resposta.uf
-})
+}

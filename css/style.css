@@ -337,7 +337,7 @@ main {
     width: 100%;
   }
 
-  .botao button {
+  .botao button, .btn_continuar, .btn_criar_conta, .btn_fazer_login { 
     width: 100%;
     height: 50px;
     border-radius: 50px;
@@ -345,86 +345,92 @@ main {
     color: var(--white);
     border: 0;
     cursor: pointer;
-    font-size: 18px;
-  }
+    font-size: 16px;
+}
 
-  /* Detalhes do produto - nome, descrição e preço */
-  .detalhes {
+/* aula 08 */
+
+/* detalhes do produto - nome, descricao e preco */
+.detalhes {
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
+}
 
-  .detalhes h4 {
+.detalhes h4 {
     font-size: 24px;
-  }
+}
 
-  .detalhes h5 {
+.detalhes h5 {
     font-size: 16px;
     color: var(--brand_color);
-  }
+}
 
-  .detalhes h6 {
-    font-size: 20px;
-  }
+.detalhes h6 {
+    font-size: 24px;
+    font-family: "Space Grotesk", sans-serif;
+}
 
-  /* Tamanhos das embalagens */
-  .tamanho h5 {
+/* tamanho */
+.tamanho h5 {
     font-size: 18px;
     margin-bottom: 10px;
-  }
+}
 
-  .tamanhos {
+.tamanhos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-  }
+}
 
-  .numeros {
-    height: 38px;
+.numeros {
+    height: 40px;
     border: 1px solid #ccc;
-    /* Detalhes para tamanho das embalagens */
+    /* aula 10 */
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .numeros:hover {
+/* aula 10 */
+.numeros:hover {
     border-color: var(--dark);
     cursor: pointer;
-  }
+}
 
-  .radio {
+.radio {
     display: none;
-  }
+}
 
-  .selecionado {
+.selecionado {
     border-color: var(--dark);
-  }
+}
 
-  /* Texto descritivo */
-  .descricao {
+/* /aula 10 */
+
+/* descricao - texto descrito */
+.descricao {
     font-size: 16px;
     line-height: 26px;
     font-weight: 400;
-  }
+}
 
-  .descricao p {
+.descricao p {
     margin-bottom: 10px;
-  }
+}
 
-  .descricao ul {
+.descricao ul {
     margin-left: 20px;
-  }
+}
 
-  /* Frete */
-  details::marker,
-  summary::marker {
-    content: "";
-  }
+/* frete */
+details::marker,
+summary::marker {
+  content: "";
+}
 
-  summary {
+summary {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
@@ -432,74 +438,74 @@ main {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-  }
+}
 
-  .icone-expandir::after,
-  .icone-recolher::after {
+.icone-expandir::after,
+.icone-recolher::after {
     content: "";
     display: inline-flex;
     width: 16px;
     height: 16px;
-    background-image: url('../Images/icon_keyboard_arrow_down.svg');
+    background-image: url('../images/icon_keyboard_arrow_down.svg');
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 5px;
-  }
+}
 
-  .icone-recolher::after {
-    background-image: url('../Images/icon_keyboard_arrow_up.svg');
-  }
+.icone-recolher::after {
+    background-image: url('../images/icon_keyboard_arrow_up.svg');
+}
 
-  details {
-    font-size: 16px;    
-  }
+details {
+    font-size: 16px;
+}
 
-  details p {
+details p {
     margin-bottom: 15px;
-  }
+}
 
-  label {
+label {
     margin-bottom: 5px;
-  }
+}
 
-  .input {
+.input {
     margin-block: 10px;
     display: flex;
     flex-direction: column;
     position: relative;
-  }
+}
 
-  .input input, .input select {
+.input input, .input select {
     width: 100%;
     height: 50px;
     border-radius: 50px;
     border: 1px solid #ccc;
     font-size: 20px;
     padding-left: 20px;
-  }
+}
 
-  .bloco {
+.bloco {
     width: 100%;
     margin-block: 20px;
-  }
+}
 
-  .input .checkbox {
+.input .checkbox {
     width: 20px;
-  }
+}
 
-  .input select {
-    background-image: url('../Images/icon_keyboard_arrow_down.svg');
+.input select {
+    background-image: url('../images/icon_keyboard_arrow_down.svg');
     background-repeat: no-repeat;
     background-position: right 20px center;
     background-size: 25px;
     padding-right: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
-    -moz-appearance: none;
+    -o-apparence: none;
     appearance: none;
-  }
+}
 
-  .input button {
+.input button {
     font-size: 16px;
     font-weight: 500;
     width: 120px;
@@ -513,160 +519,279 @@ main {
     bottom: 5px;
     right: 0px;
     margin-right: 5px;
-  }
+}
 
-  .input button:hover {
+.input button:hover {
     border-color: #222;
-  }
+}
 
-  details a {
+details a {
     color: var(--dark);
     font-weight: bold;
     margin-top: 20px;
-  }
+}
 
-  .voltar {
+.voltar {
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
-  }
+}
 
-  .voltar:hover {
+.voltar:hover {
     cursor: pointer;
     border: 1px solid var(--brand_color);
-  }
+}
 
-  /* Carrinho  */
-  .carrinho {
+/* carrinho */
+.carrinho {
     display: none;
     padding-top: 30px;
     width: 100%;
     height: 100%;
     margin-block: 20px;
     padding-inline: 20px;
-  }
+}
 
-  .carrinho h2 {
+.carrinho h2 {
     margin-bottom: 10px;
-  }
+}
 
-  table {
+table {
     width: 100%;
     border-collapse: collapse;
-  }
+}
 
-  table tr, th, td {
+table tr, th, td {
     border: 1px solid #ccc;
     height: 40px;
-  }
+}
 
-  table td {
+table td {
     padding-inline: 10px;
-  }
+}
 
-  .coluna_tamanho, .coluna_preco {
+.coluna_tamanho, .coluna_preco {
     text-align: right;
-  }
+}
 
-  .coluna_apagar {
+.coluna_apagar {
     width: 65px;
     text-align: center;
-  }
+}
 
-  .coluna_apagar span:hover {
+.coluna_apagar span:hover {
     cursor: pointer;
     color: red;
-  }
+}
 
-  tfoot {
+tfoot {
     text-align: right;
-  }
+}
 
-  /* DETALHES DO CARRINHO */
+/* DETALHES DO CARRINHO */
 .carrinho__detalhes {
-  width: 100%;
-  margin-block: 20px;
-  display: flex;
-  justify-content: space-between;
+    width: 100%;
+    margin-block: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .carrinho__detalhes label, .carrinho__detalhes h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /* .carrinho__detalhes .frete */
 .carrinho__detalhes .frete p {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /* .carrinho__detalhes .cupom_desconto */
 .cupom_desconto input {
-  min-width: 320px;
+    min-width: 320px;
 }
 
 /* .carrinho__detalhes .resumo */
 .carrinho__detalhes .resumo {
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
 .resumo ul {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .resumo li {
-  font-size: 16px;
-  line-height: 48px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 48px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
 }
 
 .resumo li:first-child {
-  border-top: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 
 @media (max-width: 1024px) {
-  .carrinho__detalhes {
-      flex-direction: column;
-      gap: 20px;
-  }
-  .carrinho__detalhes label, .carrinho__detalhes h3 {
-      font-size: 18px;
-  }
-  .carrinho__detalhes p {
-      font-size: 14px;
-  }
+
+    .carrinho__detalhes {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .carrinho__detalhes label, .carrinho__detalhes h3 {
+        font-size: 18px;
+    }
+    .carrinho__detalhes p {
+        font-size: 14px;
+    }
+    
 }
 
 .identificacao, .pagamento {
-  margin-top: 50px;
-  padding-inline: 20px;
-  width: 100%;
+    margin-top: 50px;
+    padding-inline: 20px;
+    width: 100%;
 }
 
 .identificacao h2, .pagamento h2 {
-  text-align: center;
+    text-align: center;
 }
 
 .pagamento h3 {
-  margin-block: 10px;
+    margin-block: 10px;
 }
 
-/* Validações do formulario */
+/* validacoes do form */
 .campo-invalido {
-  border-color: red !important;
+    border-color: red !important;
 }
 
 .campo-valido {
-  border-color: green !important;
+    border-color: green !important;
 }
 
 .erro {
-  color: red;
-  margin-left: 5px;
+    color: red;
+    margin-left: 5px;
+}
+
+.icone {
+    user-select: none;
+}
+
+/* modal ou pop-up login */
+.modal_login, .modal_cadastrar_usuario {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto; /* 300px */
+    background-color: var(--white_soft);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Certifique-se de que o pop-up apareça acima de outro conteúdo */
+}
+
+.modal_login h2, .modal_cadastrar_usuario h2 {
+    text-align: center;
+}
+
+.modal_overlay, .modal_overlay_cadastrar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9; /* Posicione atrás do pop-up */
+}
+
+.modal_login.hidden, .modal_overlay.hidden, .hidden {
+    display: none;
+}
+
+.modal_login.show, .modal_overlay.show, .show {
+    display: block;
+}
+
+.btn_close_login, .btn_close_cadastrar {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.btn_close_login:hover, .btn_close_cadastrar:hover {
+    font-weight: bold;
+    color: #fff;
+    background-color: #222;
+}
+
+.modal_login .botao, .botao {
+    margin-top: 20px;
+}
+
+/* modal cadastrar usuario */
+.centralizar {
+    text-align: center;
+}
+
+.link_cadastrar {
+    color: var(--dark);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link_cadastrar:hover {
+    text-decoration: underline;
+}
+
+/* aula 27 */
+.identifique-se {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+    gap: 20px;
+}
+
+.identifique-se span {
+    text-align: center;
+}
+
+.identifique-se h2, .identifique-se h3 {
+    margin-bottom: 20px;
+}
+
+.criar_conta, .entrar {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #ccc;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
