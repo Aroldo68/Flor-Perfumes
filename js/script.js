@@ -102,12 +102,14 @@ const preencherCard = (card, products) => {
 // Criação pagina carrinho
 const btnCarrinho = document.querySelector('.btn__carrinho .icone')
 btnCarrinho.addEventListener('click', () => {
-    mostrarElemento(sectionCarrinho)
-    ocultarElemento(sectionfaixa)
-    ocultarElemento(sectionProdutos)
-    ocultarElemento(sectionDetalhesProduto)
-    ocultarElemento(sectionIdentificacao)
-    ocultarElemento(sectionPagamento)   
+    if(numeroItens.innerHTML > 0) {
+        mostrarElemento(sectionCarrinho)
+        ocultarElemento(sectionfaixa)
+        ocultarElemento(sectionProdutos)
+        ocultarElemento(sectionDetalhesProduto)
+        ocultarElemento(sectionIdentificacao)
+        ocultarElemento(sectionPagamento)  
+    }
 })
 
 const btnHome = document.querySelector('.link_home')
