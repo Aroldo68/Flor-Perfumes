@@ -28,10 +28,11 @@
                 <span class="numero_itens">0</span>
             </div>
             <div class="btn__carrinho_user">
-                <span class="material-symbols-outlined icone">
+                <span id="btn_open_login" class="material-symbols-outlined icone">
                     account_circle
                 </span>
-                <span>User</span>
+                <span id="nome_usuario"></span>
+                <span id="btn_logout">Sair</span>
             </div>
             
         </div>
@@ -222,6 +223,29 @@
                 </div>
             </div>
         </section>
+
+        <!-- logar usuario -->
+        <section class="modal_login hidden">
+
+            <h2>Entrar</h2>
+            <span class="btn_close_login">X</span>
+
+            <form class="form_logar">
+                <div class="input">
+                    <label for="email_login">E-mail</label>
+                    <input type="email" id="email_login" autofocus required />
+                </div>
+                <div class="input">
+                    <label for="senha_login">Senha</label>
+                    <input type="password" id="senha_login" required />
+                </div>
+                <div class="botao">
+                    <button type="submit" class="btn_logar">Entrar</button>
+                </div>
+            </form>
+
+        </section>
+        <div class="modal_overlay hidden"></div>
 
         <section class="identificacao">
     
