@@ -242,10 +242,43 @@
                 <div class="botao">
                     <button type="submit" class="btn_logar">Entrar</button>
                 </div>
+                <div class="centralizar">
+                    <a href="" class="link_cadastrar">Cadastrar Usuário</a>
+                </div>
             </form>
 
         </section>
         <div class="modal_overlay hidden"></div>
+
+        <!-- modal cadastrar usuario -->
+        <section class="modal_cadastrar_usuario hidden">
+
+            <h2>Cadastrar</h2>
+            <span class="btn_close_cadastrar">X</span>
+
+            <form class="form_cadastrar_usuario">
+                <div class="input">
+                    <label for="email_usuario">E-mail</label>
+                    <input type="email" placeholder="user@mail.com" id="email_usuario" autofocus required />
+                </div>
+                <div class="input">
+                    <label for="senha_login">Senha</label>
+                    <input type="password" placeholder="mínimo 5 caracteres" id="senha_usuario" required />
+                </div>
+                <div class="input">
+                    <label for="confirma_senha_login">Confirme a Senha</label>
+                    <input type="password" id="confirma_senha_usuario" required />
+                </div>
+                <div class="botao">
+                    <button type="submit" class="btn_cadastrar">Cadastrar</button>
+                </div>
+                <div class="centralizar">
+                    <span class="form_aviso"></span>
+                </div>
+            </form>
+
+        </section>
+        <div class="modal_overlay_cadastrar hidden"></div>
 
         <section class="identificacao">
     

@@ -397,15 +397,85 @@ document.addEventListener('click', (event) => {
 const mostrarModal = () => {
     modalLogin.classList.add('show')
     overlayLogin.classList.add('show')
-    modalLogin.classList.remove('hidden')
-    overlayLogin.classList.remove('hidden')
 }
 
 const fecharModal = () => {
     modalLogin.classList.remove('show')
     overlayLogin.classList.remove('show')
-    modalLogin.classList.add('hidden')
-    overlayLogin.classList.add('hidden')
 }
 
 // Controle de login
+const nomeUsuario = document.querySelector('#nome_usuario')
+const btnLogout = document.querySelector('#btn_logout')
+const formularioLogar = document.querySelector('.form_logar')
+const emailLogin = document.querySelector('#email_login')
+const senhaLogin = document.querySelector('#senha_login')
+
+ocultarElemento(btnLogout) // esconder o botao Sair
+
+formularioLogar.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // pegar dados e validar para autorizar entrada
+    console.log(emailLogin.value, senhaLogin.value)
+    nomeUsuario.innerHTML = emailLogin.value
+    mostrarElemento(btnLogout)
+    formularioLogar.reset()
+    fecharModal()
+})
+
+const logout = () => {
+    ocultarElemento(btnLogout)
+    nomeUsuario.innerHTML = ''
+}
+
+btnLogout.addEventListener('click', logout)
+
+//Cadastrar Usuario
+const modalCadastrarUsuario = document.querySelector('.modal_cadastrar_usuario')
+const overlayCadastrarUsuario = document.querySelector('.modal_overlay_cadastrar')
+const btnCloseCadastrar = document.querySelector('.btn_close_cadastrar')
+const linkCadastrar = document.querySelector('.link_cadastrar')
+
+linkCadastrar.addEventListener('click', (e) => {
+    e.preventDefault()
+    fecharModal()
+    modalCadastrarUsuario.classList.add('show')
+    overlayCadastrarUsuario.classList.add('show')
+})
+
+btnCloseCadastrar.addEventListener('click', () => {
+    modalCadastrarUsuario.classList.remove('show')
+    overlayCadastrarUsuario.classList.remove('show')
+})
+
+const formularioCadastrarUsuario = document.querySelector('.form_cadastrar_usuario')
+const formAviso = document.querySelector('.form_aviso')
+
+formularioCadastrarUsuario.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // pegar dados, validar e autenticar
+    const email = document.querySelector('#email_usuario').value
+    const senha = document.querySelector('#senha_usuario').value
+    const confirmaSenha = document.querySelector('#confirma_senha_usuario').value
+
+    // validação
+    const mensagemSenhaInvalida = senha.length < 5 ? 'Digite uma senha com no mínimo 5 caracteres' : 'Senha e confirmação SÃO DIFERENTES'
+    if(senha.length < 5 || senha !== confirmaSenha) {
+        formAviso.innerHTML = mensagemSenhaInvalida
+        return
+    }
+
+    // armazenar e autenticar - login
+    formularioCadastrarUsuario.reset()
+    formAviso.innerHTML = ''
+    modalCadastrarUsuario.classList.remove('show')
+    overlayCadastrarUsuario.classList.remove('show')
+
+    const usuario = {
+        email,
+        senha
+    }
+    console.log(usuario)
+    nomeUsuario.innerHTML = usuario.email
+    mostrarElemento(btnLogout)
+})
