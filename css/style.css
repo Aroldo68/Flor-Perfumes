@@ -27,6 +27,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
 }
 
 .topo__marca a {
@@ -91,7 +92,6 @@ body {
     width: 100%;
     height: 64px;
     background-color: var(--white_soft);
-    font-size: 24px;
     font-weight: 500;
     display: none; /* flex */
     align-items: center;
@@ -114,7 +114,7 @@ body {
 
 .faixa__content {
     width: 80%;
-    height: 54px;
+    height: auto;
     color: #e8fb31;
 }
 
@@ -766,6 +766,8 @@ tfoot {
 .link_cadastrar:hover {
     text-decoration: underline;
 }
+
+/* Parte de identificação */
 
 .identifique-se {
     width: 100%;

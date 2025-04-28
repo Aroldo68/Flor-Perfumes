@@ -6,6 +6,8 @@ const sectionProdutos = document.querySelector('.produtos')
 const sectionfaixa = document.querySelector('.faixa')
 const sectionCarrinho = document.querySelector('.carrinho')
 
+let usuarioLogado = false
+
 // NAVEGACAO
 const ocultarElemento = (elemento) => {
     elemento.style.display = 'none'
@@ -22,6 +24,8 @@ const ocultarBotaoEsecao = () => {
 
 ocultarBotaoEsecao()    
 
+//Page Home
+//Pegar os dados do produto
 const getProducts = async () => {
     const response = await fetch('js/products.json')
     const data = await response.json()
@@ -206,10 +210,10 @@ const atualizarCarrinho = (cart) => {
 }
 
 const numeroItens = document.querySelector('.numero_itens')
-numeroItens.style.display = 'none'  // ocultar numero itens carrinho
+ocultarElemento(numeroItens)  // ocultar numero itens carrinho
 
 const atualizarNumeroItens = () => {
-    (cart.length > 0) ? numeroItens.style.display = 'block' : numeroItens.style.display = 'none'
+    numeroItens.style.display = cart.length ? 'block' : 'none'
     numeroItens.innerHTML = cart.length
 }   
 
@@ -254,8 +258,9 @@ ocultarElemento(sectionPagamento)
 const btnContinuarCarrinho = document.querySelector('.btn_continuar')
 btnContinuarCarrinho.addEventListener('click', () => {
     ocultarElemento(sectionCarrinho)
-    mostrarElemento(sectionIdentificacao)
-
+    //mostrarElemento(sectionIdentificacao)
+    //Parte de identificaçãoi da programação
+    mostrarElemento(sectionIdentifiquese, 'flex')
 })
 
 //Validações
@@ -383,9 +388,12 @@ const btnOpenLogin = document.querySelector('#btn_open_login')
 const modalLogin = document.querySelector('.modal_login')
 const overlayLogin = document.querySelector('.modal_overlay')
 const btnCloseLogin = document.querySelector('.btn_close_login')
+const btnFazerLogin = document.querySelector('.btn_fazer_login')
 
-btnOpenLogin.addEventListener('click', () => {
-    mostrarModal()
+document.addEventListener('click', (e) => {
+    if(e.target === btnOpenLogin || e.target === btnFazerLogin) {
+        mostrarModal()
+    }
 })
 
 document.addEventListener('click', (event) => {
@@ -421,6 +429,10 @@ formularioLogar.addEventListener('submit', (e) => {
     mostrarElemento(btnLogout)
     formularioLogar.reset()
     fecharModal()
+
+    //Iderntifique-se e proxima tela "Pagamento"
+    ocultarElemento(sectionIdentifiquese)
+    mostrarElemento(sectionPagamento)
 })
 
 const logout = () => {
@@ -435,12 +447,15 @@ const modalCadastrarUsuario = document.querySelector('.modal_cadastrar_usuario')
 const overlayCadastrarUsuario = document.querySelector('.modal_overlay_cadastrar')
 const btnCloseCadastrar = document.querySelector('.btn_close_cadastrar')
 const linkCadastrar = document.querySelector('.link_cadastrar')
+const btnCriarConta = document.querySelector('.btn_criar_conta')
 
-linkCadastrar.addEventListener('click', (e) => {
-    e.preventDefault()
-    fecharModal()
-    modalCadastrarUsuario.classList.add('show')
-    overlayCadastrarUsuario.classList.add('show')
+document.addEventListener('click', (e) => {
+    if(e.target === linkCadastrar || e.target === btnCriarConta) {
+        e.preventDefault()
+        fecharModal()
+        modalCadastrarUsuario.classList.add('show')
+        overlayCadastrarUsuario.classList.add('show')
+    }
 })
 
 btnCloseCadastrar.addEventListener('click', () => {
@@ -478,4 +493,11 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
     console.log(usuario)
     nomeUsuario.innerHTML = usuario.email
     mostrarElemento(btnLogout)
+    //Iderntifique-se e proxima tela "Pagamento"
+    ocultarElemento(sectionIdentifiquese)
+    mostrarElemento(sectionPagamento)
 })
+
+//Identifique-se
+const sectionIdentifiquese = document.querySelector('.identifique-se')
+ocultarElemento(sectionIdentifiquese)
