@@ -1,14 +1,24 @@
 import { numberFormat } from './utils.js'
 
 const botaoVoltar = document.querySelector('.voltar')
-const sectionDetalhesProduto = document.querySelector('.produto__detalhes')
-const sectionProdutos = document.querySelector('.produtos')
+const sectiondetalhesproduto = document.querySelector('.produto__detalhes')
+const sectionprodutos = document.querySelector('.produtos')
 const sectionfaixa = document.querySelector('.faixa')
 const sectionCarrinho = document.querySelector('.carrinho')
 
 let usuarioLogado = false
 
 // NAVEGACAO
+const irParaHome = () => {
+    ocultarElemento(sectionPagamento)
+    ocultarElemento(sectionIdentificacao)
+    ocultarElemento(sectionIdentifiquese)
+    ocultarElemento(sectionCarrinho)
+    ocultarElemento(botaoVoltar)
+    ocultarElemento(sectiondetalhesproduto)
+    mostrarElemento(sectionfaixa, 'flex')
+    mostrarElemento(sectionprodutos, 'flex')
+}
 const ocultarElemento = (elemento) => {
     elemento.style.display = 'none'
 }
@@ -19,7 +29,7 @@ const mostrarElemento = (elemento, display='block') => {
 
 const ocultarBotaoEsecao = () => {
     botaoVoltar.style.display = 'none'
-    sectionDetalhesProduto.style.display = 'none'   
+    sectiondetalhesproduto.style.display = 'none'   
 }
 
 ocultarBotaoEsecao()    
@@ -57,7 +67,7 @@ const generateCard = async () => {
 generateCard()
 
 botaoVoltar.addEventListener('click', () => {
-        sectionProdutos.style.display = 'flex'
+        sectionprodutos.style.display = 'flex'
         ocultarBotaoEsecao()
         resetarSelecao(radios)  
 })
@@ -89,9 +99,9 @@ details.addEventListener('toggle', () => {
 const preencherCard = (card, products) => {
     card.addEventListener('click', (e) => {
         // Ocultar e Mostrar o botão e a area de detalhes do produto
-        sectionProdutos.style.display = 'none'
+        sectionprodutos.style.display = 'none'
         botaoVoltar.style.display = 'block'
-        sectionDetalhesProduto.style.display = 'grid'
+        sectiondetalhesproduto.style.display = 'grid'
 
         //Identificar qual o card foi clicado
         const cardClicado = e.currentTarget
@@ -109,8 +119,8 @@ btnCarrinho.addEventListener('click', () => {
     if(numeroItens.innerHTML > 0) {
         mostrarElemento(sectionCarrinho)
         ocultarElemento(sectionfaixa)
-        ocultarElemento(sectionProdutos)
-        ocultarElemento(sectionDetalhesProduto)
+        ocultarElemento(sectionprodutos)
+        ocultarElemento(sectiondetalhesproduto)
         ocultarElemento(sectionIdentificacao)
         ocultarElemento(sectionPagamento)  
     }
@@ -119,12 +129,7 @@ btnCarrinho.addEventListener('click', () => {
 const btnHome = document.querySelector('.link_home')
 btnHome.addEventListener('click', (event) => {
     event.preventDefault()
-    ocultarElemento(sectionCarrinho)
-    mostrarElemento(sectionfaixa, 'flex')
-    mostrarElemento(sectionProdutos, 'flex')
-    ocultarBotaoEsecao() //ajustes no site
-    ocultarElemento(sectionIdentificacao)
-    ocultarElemento(sectionPagamento)   
+    irParaHome()
 })
 
 //Continuação da montagem da pagina carrinho
@@ -342,7 +347,7 @@ const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
 btnFinalizarCompra.addEventListener('click', () => {
     ocultarElemento(sectionPagamento)
     mostrarElemento(sectionfaixa, 'flex')
-    mostrarElemento(sectionProdutos, 'flex')
+    mostrarElemento(sectionprodutos, 'flex')
 
 })
 
@@ -430,6 +435,9 @@ formularioLogar.addEventListener('submit', (e) => {
     formularioLogar.reset()
     fecharModal()
 
+    usuarioLogado = true
+    console.log('Usuário logado ', usuarioLogado)
+
     //Iderntifique-se e proxima tela "Pagamento"
     ocultarElemento(sectionIdentifiquese)
     mostrarElemento(sectionPagamento)
@@ -438,6 +446,10 @@ formularioLogar.addEventListener('submit', (e) => {
 const logout = () => {
     ocultarElemento(btnLogout)
     nomeUsuario.innerHTML = ''
+
+    usuarioLogado = false
+    console.log('Usuário logado ', usuarioLogado)
+    irParaHome()
 }
 
 btnLogout.addEventListener('click', logout)
@@ -493,6 +505,9 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
     console.log(usuario)
     nomeUsuario.innerHTML = usuario.email
     mostrarElemento(btnLogout)
+
+    usuarioLogado = true
+    console.log('Usuário logado ', usuarioLogado)
     //Iderntifique-se e proxima tela "Pagamento"
     ocultarElemento(sectionIdentifiquese)
     mostrarElemento(sectionPagamento)
