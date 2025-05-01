@@ -19,6 +19,20 @@ const irParaHome = () => {
     mostrarElemento(sectionfaixa, 'flex')
     mostrarElemento(sectionprodutos, 'flex')
 }
+
+// Alteração tela pagamento
+const irParaPagamento = () => {
+    ocultarElemento(sectionIdentifiquese)
+    if(numeroItens.innerHTML > 0) {
+        ocultarElemento(sectionfaixa)
+        ocultarElemento(sectionprodutos)
+        //ocultarVoltarEsecaoDetalhes()
+        //ocultarElemento(sectionCarrinho)
+        mostrarElemento(sectionPagamento)
+    }
+}
+
+
 const ocultarElemento = (elemento) => {
     elemento.style.display = 'none'
 }
@@ -159,7 +173,7 @@ const resetarSelecao = (radios) => {
     })
 }
 
-const cart = []
+let cart = []
 
 const btnAddCarrinho = document.querySelector('.btn__add_cart')
 btnAddCarrinho.addEventListener('click', () => {
@@ -212,6 +226,22 @@ const atualizarCarrinho = (cart) => {
     spanTotalCompra.innerHTML = numberFormat.format(total + valorFrete - valorDesconto)
 
     acaoBotaoApagar()
+    criarCompra()   //Criar compra
+}
+
+// Criar compra
+let compra = {}
+
+const criarCompra = () => {
+    console.log(cart)
+    const dataAtual = new Date().toLocaleString()
+
+    compra = {
+        dataCompra: dataAtual,
+        carrinho: cart,
+        totalCompra: limparFormatoReal(spanTotalCompra.innerHTML)
+    }
+    console.log(compra)
 }
 
 const numeroItens = document.querySelector('.numero_itens')
@@ -404,7 +434,7 @@ const btnFazerLogin = document.querySelector('.btn_fazer_login')
 
 document.addEventListener('click', (e) => {
     if(e.target === btnOpenLogin || e.target === btnFazerLogin) {
-        mostrarModal()
+        (!usuarioLogado) && mostrarModal()  //Ajuste na tela de login
     }
 })
 
@@ -444,10 +474,7 @@ formularioLogar.addEventListener('submit', (e) => {
 
     usuarioLogado = true
     console.log('Usuário logado ', usuarioLogado)
-
-    //Iderntifique-se e proxima tela "Pagamento"
-    ocultarElemento(sectionIdentifiquese)
-    mostrarElemento(sectionPagamento)
+    irParaPagamento()    
 })
 
 const logout = () => {
@@ -515,9 +542,8 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
 
     usuarioLogado = true
     console.log('Usuário logado ', usuarioLogado)
-    //Iderntifique-se e proxima tela "Pagamento"
-    ocultarElemento(sectionIdentifiquese)
-    mostrarElemento(sectionPagamento)
+    irParaPagamento()
+    
 })
 
 //Identifique-se
