@@ -235,6 +235,10 @@ const acaoBotaoApagar = () => {
         })
     })
     atualizarNumeroItens()
+    //Acerto na pagina do carrinho vazio
+    if(numeroItens.innerHTML <= 0) {
+        irParaHome()
+    }
 }
 
 // Selecionar o span do id e ocultar.
@@ -263,8 +267,11 @@ ocultarElemento(sectionPagamento)
 const btnContinuarCarrinho = document.querySelector('.btn_continuar')
 btnContinuarCarrinho.addEventListener('click', () => {
     ocultarElemento(sectionCarrinho)
-    //mostrarElemento(sectionIdentificacao)
     //Parte de identificaçãoi da programação
+    if(usuarioLogado) {
+        mostrarElemento(sectionPagamento)
+        return
+    }
     mostrarElemento(sectionIdentifiquese, 'flex')
 })
 
