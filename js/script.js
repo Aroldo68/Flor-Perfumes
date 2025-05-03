@@ -239,9 +239,10 @@ const criarCompra = () => {
     compra = {
         dataCompra: dataAtual,
         carrinho: cart,
-        totalCompra: limparFormatoReal(spanTotalCompra.innerHTML)
+        totalCompra: spanTotalCompra.innerHTML
     }
-    console.log(compra)
+    localStorage.setItem('carrinho', JSON.stringify(compra))
+    console.log(JSON.parse(localStorage.getItem('carrinho')))
 }
 
 const numeroItens = document.querySelector('.numero_itens')
@@ -474,6 +475,9 @@ formularioLogar.addEventListener('submit', (e) => {
 
     usuarioLogado = true
     console.log('Usuário logado ', usuarioLogado)
+    // Montagem do carrinho
+    localStorage.setItem('nomeUsuario', nomeUsuario.innerHTML)
+    console.log(localStorage.getItem('nomeUsuario'))
     irParaPagamento()    
 })
 
@@ -542,6 +546,9 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
 
     usuarioLogado = true
     console.log('Usuário logado ', usuarioLogado)
+    //Montagem carrinho
+    localStorage.setItem('nomeUsuario', nomeUsuario.innerHTML)
+    console.log(localStorage.getItem('nomeUsuario'))
     irParaPagamento()
     
 })
