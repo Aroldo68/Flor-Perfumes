@@ -381,13 +381,15 @@ todosCamposObrigatorios.forEach( campo => {
     })
 })
 
-const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
-btnFinalizarCompra.addEventListener('click', () => {
-    ocultarElemento(sectionPagamento)
-    mostrarElemento(sectionfaixa, 'flex')
-    mostrarElemento(sectionprodutos, 'flex')
 
-})
+
+// const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
+// btnFinalizarCompra.addEventListener('click', () => {
+//     ocultarElemento(sectionPagamento)
+//     mostrarElemento(sectionfaixa, 'flex')
+//     mostrarElemento(sectionprodutos, 'flex')
+
+// })
 
 // Completar os dados após vreificar o CEP
 const buscarCEP = async (cep) => {
@@ -487,6 +489,9 @@ const logout = () => {
 
     usuarioLogado = false
     console.log('Usuário logado ', usuarioLogado)
+    //Limpar carrinho
+    localStorage.removeItem('nomeUsuario')
+    localStorage.removeItem('carrinho')
     irParaHome()
 }
 
@@ -556,3 +561,40 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
 //Identifique-se
 const sectionIdentifiquese = document.querySelector('.identifique-se')
 ocultarElemento(sectionIdentifiquese)
+
+// Pegar os dados do pagamento
+const formularioPagamento = document.querySelector('.form_pagamento')
+const numeroCartao = document.querySelector('#numero_cartao')
+const nomeImpresso = document.querySelector('#nome_impresso')
+const validade = document.querySelector('#validade')
+const codigoSeguranca = document.querySelector('#codigo_seguranca')
+const numeroParcelas = document.querySelector('#numero_parcelas')
+
+formularioPagamento.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let cartao = {
+        numeroCartao: numeroCartao.value,
+        nomeImpresso: nomeImpresso.value,
+        validade: validade.value,
+        codigoSeguranca: codigoSeguranca.value,
+        numeroParcelas: numeroParcelas.value
+    }
+    console.log(cartao)
+
+    // Pedido
+    const pedido = {
+        id: 1,
+        usurio: localStorage.getItem('nomeUsuario'),
+        carrinho: JSON.parse(localStorage.getItem('carrinho')),
+        cartao: cartao
+    }
+    localStorage.setItem('pedido', JSON.stringify(pedido))
+    // limpar formulario e ir para home
+    formularioPagamento.reset()
+    irParaHome()
+    cart = []
+    atualizarCarrinho(cart)
+    atualizarNumeroItens()
+    console.log(pedido)
+    console.log(localStorage.getItem('pedido'))
+})
