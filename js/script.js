@@ -26,12 +26,9 @@ const irParaPagamento = () => {
     if(numeroItens.innerHTML > 0) {
         ocultarElemento(sectionfaixa)
         ocultarElemento(sectionprodutos)
-        //ocultarVoltarEsecaoDetalhes()
-        //ocultarElemento(sectionCarrinho)
         mostrarElemento(sectionPagamento)
     }
 }
-
 
 const ocultarElemento = (elemento) => {
     elemento.style.display = 'none'
@@ -93,7 +90,6 @@ const preencherDadosProduto = (product) => {
     imagensArray.map( image => {
         image.src = `./images/${product.image}`
     })
-
     //Preencher nome, quant. e preço
     document.querySelector('.detalhes span').innerHTML = product.id
     document.querySelector('.detalhes h4').innerHTML = product.product_name
@@ -116,12 +112,10 @@ const preencherCard = (card, products) => {
         sectionprodutos.style.display = 'none'
         botaoVoltar.style.display = 'block'
         sectiondetalhesproduto.style.display = 'grid'
-
         //Identificar qual o card foi clicado
         const cardClicado = e.currentTarget
         const idProduto = cardClicado.id
         const produtoClicado = products.find( product => product.id == idProduto )
-        
         //Preencher os dados de detalhes do produto
         preencherDadosProduto(produtoClicado)
     })
@@ -152,7 +146,6 @@ radios.forEach(radio => {
     radio.addEventListener('change', () => {
         const label = document.querySelector(`label[for="${radio.id}"]`)
         label.classList.add('selecionado')
-        console.log(label)
         radios.forEach(radioAtual => {
             if (radioAtual !== radio) {
                 const outroLabel = document.querySelector(`label[for="${radioAtual.id}"]`)
@@ -185,9 +178,7 @@ btnAddCarrinho.addEventListener('click', () => {
         preco: document.querySelector('.detalhes h6').innerHTML,
         tamanho: document.querySelector('input[type="radio"][name="size"]:checked').value
     }
-    console.log(produto)
     cart.push(produto) // Adicionar o produto ao array cart -> Carrinho
-    console.log(cart)
     // Ocultar o botão voltar, faixa e a seção detalhes do produto e mostrar pagina carrinho
     ocultarBotaoEsecao()
     sectionfaixa.style.display = 'none'
@@ -195,11 +186,9 @@ btnAddCarrinho.addEventListener('click', () => {
 
     atualizarCarrinho(cart)
     atualizarNumeroItens()
-
 })
 
 const corpoTabela = document.querySelector('.carrinho tbody')
-
 const atualizarCarrinho = (cart) => {
     corpoTabela.innerHTML = "" //Limpar a tabela
     cart.map(produto => {
@@ -224,30 +213,22 @@ const atualizarCarrinho = (cart) => {
     document.querySelector('.coluna_total').innerHTML = numberFormat.format(total) // 1123.45
     spanSubTotal.innerHTML = numberFormat.format(total)
     spanTotalCompra.innerHTML = numberFormat.format(total + valorFrete - valorDesconto)
-
     acaoBotaoApagar()
     criarCompra()   //Criar compra
 }
 
-// Criar compra
-let compra = {}
-
 const criarCompra = () => {
-    console.log(cart)
     const dataAtual = new Date().toLocaleString()
-
-    compra = {
+    const compra = {
         dataCompra: dataAtual,
         carrinho: cart,
         totalCompra: spanTotalCompra.innerHTML
     }
     localStorage.setItem('carrinho', JSON.stringify(compra))
-    console.log(JSON.parse(localStorage.getItem('carrinho')))
 }
 
 const numeroItens = document.querySelector('.numero_itens')
 ocultarElemento(numeroItens)  // ocultar numero itens carrinho
-
 const atualizarNumeroItens = () => {
     numeroItens.style.display = cart.length ? 'block' : 'none'
     numeroItens.innerHTML = cart.length
@@ -258,7 +239,6 @@ const acaoBotaoApagar = () => {
     const botaoApagar = document.querySelectorAll('.coluna_apagar span')
     botaoApagar.forEach( botao => {
         botao.addEventListener('click', () => {
-            console.log('Apagar')
             const id = botao.getAttribute('data-id')
             const posicao = cart.findIndex( item => item.id == id )
             cart.splice(posicao, 1)
@@ -266,29 +246,20 @@ const acaoBotaoApagar = () => {
         })
     })
     atualizarNumeroItens()
-    //Acerto na pagina do carrinho vazio
-    if(numeroItens.innerHTML <= 0) {
-        irParaHome()
-    }
+    if(numeroItens.innerHTML <= 0) { irParaHome() }
 }
-
 // Selecionar o span do id e ocultar.
 const spanId = document.querySelector('.detalhes span')
 spanId.style.display = 'none'
-
 // Detalhes da pagina de pedidos
 let valorFrete = 0
 let valorDesconto = 0
-
 const spanSubTotal = document.querySelector('.sub_total')
 const spanFrete = document.querySelector('.valor_frete')
 const spanDesconto = document.querySelector('.valor_desconto')
 const spanTotalCompra = document.querySelector('.total_compra')
-
 spanFrete.innerHTML = numberFormat.format(valorFrete)
 spanDesconto.innerHTML = numberFormat.format(valorDesconto)
-
-// Montagem da pagina cadastro de cliente e pagamento
 const sectionIdentificacao = document.querySelector('.identificacao')
 const sectionPagamento = document.querySelector('.pagamento')
 
@@ -306,7 +277,6 @@ btnContinuarCarrinho.addEventListener('click', () => {
     mostrarElemento(sectionIdentifiquese, 'flex')
 })
 
-//Validações
 const formularioIdentificacao = document.querySelector('.form_identificacao')
 const todosCamposObrigatorios = formularioIdentificacao.querySelectorAll('[required]')
 const todosCampos = formularioIdentificacao.querySelectorAll('input')
@@ -355,7 +325,6 @@ btnFinalizarCadastro.addEventListener('click', (event) => {
     }
 })
 
-// Validação onBlur
 todosCamposObrigatorios.forEach( campo => {
     const emailRegex = /\S+@\S+\.\S+/
     campo.addEventListener('blur', (e) => {
@@ -381,24 +350,12 @@ todosCamposObrigatorios.forEach( campo => {
     })
 })
 
-
-
-// const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
-// btnFinalizarCompra.addEventListener('click', () => {
-//     ocultarElemento(sectionPagamento)
-//     mostrarElemento(sectionfaixa, 'flex')
-//     mostrarElemento(sectionprodutos, 'flex')
-
-// })
-
-// Completar os dados após vreificar o CEP
 const buscarCEP = async (cep) => {
     const url = `https://viacep.com.br/ws/${cep}/json`
     const response = await fetch(url)
     const data = await response.json()
     return data
 }
-
 document.querySelector('#cep1').addEventListener('blur', async (e) => {
     const cep = e.target.value
     if (!cep) {
@@ -440,24 +397,20 @@ document.addEventListener('click', (e) => {
         (!usuarioLogado) && mostrarModal()  //Ajuste na tela de login
     }
 })
-
 document.addEventListener('click', (event) => {
     if(event.target === overlayLogin || event.target === btnCloseLogin) {
         fecharModal()
     }
 } )
-
 const mostrarModal = () => {
     modalLogin.classList.add('show')
     overlayLogin.classList.add('show')
 }
-
 const fecharModal = () => {
     modalLogin.classList.remove('show')
     overlayLogin.classList.remove('show')
 }
 
-// Controle de login
 const nomeUsuario = document.querySelector('#nome_usuario')
 const btnLogout = document.querySelector('#btn_logout')
 const formularioLogar = document.querySelector('.form_logar')
@@ -468,28 +421,19 @@ ocultarElemento(btnLogout) // esconder o botao Sair
 
 formularioLogar.addEventListener('submit', (e) => {
     e.preventDefault()
-    // pegar dados e validar para autorizar entrada
-    console.log(emailLogin.value, senhaLogin.value)
     nomeUsuario.innerHTML = emailLogin.value
     mostrarElemento(btnLogout)
     formularioLogar.reset()
     fecharModal()
-
     usuarioLogado = true
-    console.log('Usuário logado ', usuarioLogado)
-    // Montagem do carrinho
     localStorage.setItem('nomeUsuario', nomeUsuario.innerHTML)
-    console.log(localStorage.getItem('nomeUsuario'))
     irParaPagamento()    
 })
 
 const logout = () => {
     ocultarElemento(btnLogout)
     nomeUsuario.innerHTML = ''
-
     usuarioLogado = false
-    console.log('Usuário logado ', usuarioLogado)
-    //Limpar carrinho
     localStorage.removeItem('nomeUsuario')
     localStorage.removeItem('carrinho')
     irParaHome()
@@ -497,7 +441,6 @@ const logout = () => {
 
 btnLogout.addEventListener('click', logout)
 
-//Cadastrar Usuario
 const modalCadastrarUsuario = document.querySelector('.modal_cadastrar_usuario')
 const overlayCadastrarUsuario = document.querySelector('.modal_overlay_cadastrar')
 const btnCloseCadastrar = document.querySelector('.btn_close_cadastrar')
@@ -527,35 +470,23 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
     const email = document.querySelector('#email_usuario').value
     const senha = document.querySelector('#senha_usuario').value
     const confirmaSenha = document.querySelector('#confirma_senha_usuario').value
-
-    // validação
     const mensagemSenhaInvalida = senha.length < 5 ? 'Digite uma senha com no mínimo 5 caracteres' : 'Senha e confirmação SÃO DIFERENTES'
     if(senha.length < 5 || senha !== confirmaSenha) {
         formAviso.innerHTML = mensagemSenhaInvalida
         return
     }
-
     // armazenar e autenticar - login
     formularioCadastrarUsuario.reset()
     formAviso.innerHTML = ''
     modalCadastrarUsuario.classList.remove('show')
     overlayCadastrarUsuario.classList.remove('show')
 
-    const usuario = {
-        email,
-        senha
-    }
-    console.log(usuario)
+    const usuario = { email, senha }
     nomeUsuario.innerHTML = usuario.email
     mostrarElemento(btnLogout)
-
     usuarioLogado = true
-    console.log('Usuário logado ', usuarioLogado)
-    //Montagem carrinho
     localStorage.setItem('nomeUsuario', nomeUsuario.innerHTML)
-    console.log(localStorage.getItem('nomeUsuario'))
     irParaPagamento()
-    
 })
 
 //Identifique-se
@@ -564,24 +495,16 @@ ocultarElemento(sectionIdentifiquese)
 
 // Pegar os dados do pagamento
 const formularioPagamento = document.querySelector('.form_pagamento')
-const numeroCartao = document.querySelector('#numero_cartao')
-const nomeImpresso = document.querySelector('#nome_impresso')
-const validade = document.querySelector('#validade')
-const codigoSeguranca = document.querySelector('#codigo_seguranca')
-const numeroParcelas = document.querySelector('#numero_parcelas')
 
 formularioPagamento.addEventListener('submit', (e) => {
     e.preventDefault()
-    let cartao = {
-        numeroCartao: numeroCartao.value,
-        nomeImpresso: nomeImpresso.value,
-        validade: validade.value,
-        codigoSeguranca: codigoSeguranca.value,
-        numeroParcelas: numeroParcelas.value
+    const cartao = {
+        numeroCartao: document.querySelector('#numero_cartao').value,
+        nomeImpresso: document.querySelector('#nome_impresso').value,
+        validade: document.querySelector('#validade').value,
+        codigoSeguranca: document.querySelector('#codigo_seguranca').value,
+        numeroParcelas: document.querySelector('#numero_parcelas').value
     }
-    console.log(cartao)
-
-    // Pedido
     const pedido = {
         id: 1,
         usurio: localStorage.getItem('nomeUsuario'),
@@ -589,12 +512,13 @@ formularioPagamento.addEventListener('submit', (e) => {
         cartao: cartao
     }
     localStorage.setItem('pedido', JSON.stringify(pedido))
-    // limpar formulario e ir para home
     formularioPagamento.reset()
     irParaHome()
+    zerarCarrinho()
+})
+
+const zerarCarrinho = () => {
     cart = []
     atualizarCarrinho(cart)
     atualizarNumeroItens()
-    console.log(pedido)
-    console.log(localStorage.getItem('pedido'))
-})
+}
